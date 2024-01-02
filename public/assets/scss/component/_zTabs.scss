@@ -1,0 +1,39 @@
+.zTabHead {
+  border-bottom: none;
+  flex-wrap: nowrap;
+  @media screen and (max-width: 575px) {
+    overflow-x: scroll;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-link {
+    position: relative;
+    margin-bottom: 0;
+    border: none;
+    border-radius: 0 !important;
+    padding: 0 toRem(30) toRem(15);
+    @include fontFamily(16, $fw_medium, 20, $colorOne);
+    white-space: nowrap;
+    &.active {
+      color: $text-black;
+      &::after {
+        width: 100%;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: toRem(1);
+      background-color: $text-black;
+      transition: all 0.3s;
+    }
+  }
+}
+.zTabContent {
+  border-top: toRem(1) solid $border-color;
+  padding-top: toRem(30);
+}
